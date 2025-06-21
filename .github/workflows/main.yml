@@ -36,16 +36,16 @@ jobs:
 
     - name: Compile for Windows 64
       run: |
-        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/windows64 -D windows -D target64
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween -main Main -cpp bin/windows64 -D windows -D target64
 
     - name: Compile for Windows 32
       run: |
-        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/windows32 -D windows -D target32
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween -main Main -cpp bin/windows32 -D windows -D target32
 
     - name: Compile for macOS
       run: |
-        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/macOS -D mac -D target64
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween -main Main -cpp bin/macOS -D mac -D target64
 
     - name: Compile for Linux
       run: |
-        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/linux -D linux -D target64
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween -main Main -cpp bin/linux -D linux -D target64
