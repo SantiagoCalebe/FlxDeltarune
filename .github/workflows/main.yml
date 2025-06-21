@@ -21,6 +21,12 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y haxe
 
+    - name: Setup haxelib
+      run: |
+        mkdir -p $HOME/.haxelib
+        echo "haxelib repository" > $HOME/.haxelib/haxelib_config
+        haxelib setup $HOME/.haxelib
+
     - name: Install HaxeFlixel dependencies
       run: |
         haxelib install flixel
