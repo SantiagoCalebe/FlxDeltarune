@@ -1,0 +1,46 @@
+name: FlxDeltarune
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install Haxe
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y haxe
+
+    - name: Install HaxeFlixel dependencies
+      run: |
+        haxelib install flixel
+        haxelib install flixel-addons
+        haxelib install flixel-ui
+        haxelib install rulescript
+        haxelib install gtween
+
+    - name: Compile for Windows 64
+      run: |
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/windows64 -D windows -D target64
+
+    - name: Compile for Windows 32
+      run: |
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/windows32 -D windows -D target32
+
+    - name: Compile for macOS
+      run: |
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/macOS -D mac -D target64
+
+    - name: Compile for Linux
+      run: |
+        haxe -lib flixel -lib flixel-addons -lib flixel-ui -lib rulescript -lib gtween src/Main.hx -main Main -cpp bin/linux -D linux -D target64
