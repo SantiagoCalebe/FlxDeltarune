@@ -23,9 +23,8 @@ jobs:
 
     - name: Setup haxelib
       run: |
-        mkdir -p $HOME/.haxelib
-        echo "haxelib repository" > $HOME/.haxelib/haxelib_config
-        haxelib setup $HOME/.haxelib
+        mkdir -p $HOME/.haxe
+        haxelib setup $HOME/.haxe
 
     - name: Install HaxeFlixel dependencies
       run: |
