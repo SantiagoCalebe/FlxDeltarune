@@ -33,6 +33,9 @@ jobs:
         haxelib install flixel-ui
         haxelib install rulescript
         haxelib install gtween
+    - name: Go to source
+      run: |
+         cd source
 
     - name: Compile for Windows 64
       run: |
